@@ -5,7 +5,7 @@
 #include "common.h"
 
 class CScene;
-class CCommand
+class CCommand  // 指令
 {
 public:
     CCommand(CScene* pOwner);
@@ -13,8 +13,8 @@ public:
     CCommand(const CCommand &);
     ~CCommand();
 
-    bool execute(int nInputValue);
-    void undo();
+    bool execute(int nInputValue);  // 填入值
+    void undo();    // 撤销上一步操作
     point_t getPoint() { return _stPoint; }
     int getPreValue() { return _nPreValue; }
     int getCurValue() { return _nCurValue; }
@@ -23,9 +23,9 @@ public:
     void setCurValue(int curValue) { _nCurValue = curValue; }
 
 private:
-    CScene* _pOwner;
-    point_t _stPoint;
-    int _nPreValue;
+    CScene* _pOwner;    // 网格指针
+    point_t _stPoint;   // 当前光标坐标
+    int _nPreValue; // 旧值,用于undo
     int _nCurValue;  // actually the member is never used
 };
 

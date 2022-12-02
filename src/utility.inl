@@ -59,7 +59,7 @@ inline int AverageRandom(int min, int max)
     }
 #endif
 
-inline void cls(void)
+inline void cls(void)   // 清空终端的输出
 {
 #ifdef _WIN32
     system("cls");
